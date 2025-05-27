@@ -286,34 +286,34 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Migrate Rocket.Chat files from GridFS to FileSystem or Amazon S3."
     )
-    parser.add_argument("-s", "--host", default="localhost", help="MongoDB host")
-    parser.add_argument("-p", "--port", type=int, default=27017, help="MongoDB port")
-    parser.add_argument("-r", "--database", default="rocketchat", help="Database name")
+    parser.add_argument("-s", "--host", default="localhost", help="MongoDB host (default: %(default)s)")
+    parser.add_argument("-p", "--port", type=int, default=27017, help="MongoDB port (default: %(default)s)")
+    parser.add_argument("-r", "--database", default="rocketchat", help="Database name (default: %(default)s)")
     parser.add_argument(
         "-c",
         "--command",
         choices=["dump", "updatedb", "removeblobs"],
         required=True,
-        help="Command to execute: dump, updatedb, or removeblobs",
+        help="Command to execute: dump, updatedb, or removeblobs"
     )
     parser.add_argument(
         "-t",
         "--target",
         choices=["AmazonS3", "FileSystem"],
         default="FileSystem",
-        help="Storage target: AmazonS3 or FileSystem",
+        help="Storage target: AmazonS3 or FileSystem (default: %(default)s)"
     )
     parser.add_argument(
         "-d", "--destination", help="S3 bucket name or output directory (required for dump)"
     )
     default_logfile = f"{Path(sys.argv[0]).stem}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
     parser.add_argument(
-        "-l", "--log-file", default=default_logfile, help="Log file path"
+        "-l", "--log-file", default=default_logfile, help="Log file path (default: %(default)s)"
     )
-    parser.add_argument("--user", default=None, help="MongoDB username")
-    parser.add_argument("--password", default=None, help="MongoDB password")
+    parser.add_argument("--user", default=None, help="MongoDB username (default: %(default)s)")
+    parser.add_argument("--password", default=None, help="MongoDB password (default: %(default)s)")
     parser.add_argument(
-        "--max-workers", type=int, default=4, help="Number of parallel workers"
+        "--max-workers", type=int, default=4, help="Number of parallel workers (default: %(default)s)"
     )
 
     args = parser.parse_args()

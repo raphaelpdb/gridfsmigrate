@@ -46,13 +46,13 @@ Not having this index can make migration very slow on large databases.
 - When installed via snap, the default database name is `parties` and usually there is no username or password.
 - Example usage:
 
-      ./migrate.py -c dump -r parties -t FileSystem -d ./uploads
+      ./migrate.py -c dump -r parties -t FileSystem -d /app/uploads
 
 ### Multi-threaded Execution
 
-To speed up migration, you can configure the script to use multiple threads. Check for the `--threads` (or similar) option in `./migrate.py -h` and adjust according to your CPU core count. Example:
+To speed up migration, you can configure the script to use multiple workers. Adjust according to your CPU core count. Example:
 
-      ./migrate.py -c dump -r parties -t FileSystem -d ./uploads --threads 8
+      ./migrate.py -c dump -r parties -t FileSystem -d /app/uploads --max-workers 8
 
 ### Steps
 
@@ -64,7 +64,7 @@ To speed up migration, you can configure the script to use multiple threads. Che
 
    - **File System**
 
-         ./migrate.py -c dump -r rocketchat -t FileSystem -d ./uploads
+         ./migrate.py -c dump -r rocketchat -t FileSystem -d /app/uploads
 
    - **S3**
 
