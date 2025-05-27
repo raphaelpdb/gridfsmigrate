@@ -21,7 +21,7 @@ __email__ = "armin.felder@osalliance.com"
 __license__ = "GPLv3"
 __maintainer__ = "Armin Felder"
 __status__ = "Production"
-__version__ = "1.0.2"
+__version__ = "1.1.0"
 
 import argparse
 import csv
